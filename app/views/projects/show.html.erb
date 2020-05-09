@@ -1,14 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @project.content %>
-</p>
+<h2 class="todo_list_title"><%= @project.title%></h2>
+<h2 class="todo_list_sub_title"><%= @project.content%></h2>
 
 <div id="todo_items_wrapper">
   <%=render @project.tasks%>
@@ -16,5 +7,8 @@
     <%= render 'tasks/form' %>  
   </div>
 </div>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="links">
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+  <%= link_to 'Delete', projects_path(@project), method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
